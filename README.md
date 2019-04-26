@@ -18,13 +18,18 @@ internal structure of a ggplot object.
 ## Releases
 
   - `0.1.0` - initial release
-  - `0.1.0` - improved theme handling
+  - `0.1.1` - improved theme handling
 
 ## ToDo
 
-  - Reverse engineering of facetting and scales from a plot object.
+  - Extracting `facet` and `scales` information.
   - `aes_string()` is currently unsupported.
   - Using tidyeval in `aes()` calls is currently unsupported.
+  - Complete themes which are customisations of built-in themes could be
+    more compact if nested diffs where done between themes, rather than
+    just a `shallow_diff()`
+  - currently layers extracted as `geom_x(stat = 'y')` rather than
+    `stat_y(geom='x')`. Make this configurable?
   - Lots of other stuff :)
 
 ## Installation
