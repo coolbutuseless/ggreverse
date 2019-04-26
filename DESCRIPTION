@@ -1,0 +1,16 @@
+Package: ggreverse
+Type: Package
+Title: Creates Ggplot2 Code from a Ggplot2 object
+Version: 0.1.0
+Author: mikefc
+Maintainer: mikefc <mikefc@coolbutuseless.com>
+Description: Create the code necessary to create a given ggplot2 object.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports:
+  purrr,
+  glue,
+  stringr,
+  ggplot2
