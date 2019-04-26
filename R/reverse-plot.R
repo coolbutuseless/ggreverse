@@ -84,7 +84,7 @@ convert_to_code <- function(p,
   facet       <- reverse_facet(p)
   scales      <- reverse_scales(p)
   labels      <- reverse_labels(p)
-  theme       <- reverse_theme(p)
+  theme       <- reverse_theme(p$theme)
   coords      <- reverse_coordinates(p)
 
   paste(c(ggplot_call, layers, facet, scales, labels, theme, coords), collapse = "+")

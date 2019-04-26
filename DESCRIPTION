@@ -1,7 +1,7 @@
 Package: ggreverse
 Type: Package
 Title: Creates Ggplot2 Code from a Ggplot2 object
-Version: 0.1.0
+Version: 0.1.1
 Author: mikefc
 Maintainer: mikefc <mikefc@coolbutuseless.com>
 Description: Create the code necessary to create a given ggplot2 object.
@@ -13,4 +13,5 @@ Imports:
   purrr,
   glue,
   stringr,
-  ggplot2
+  ggplot2,
+  rlang

@@ -45,9 +45,12 @@ fargs <- function(nlist) {
   # Use 'deparse()' to turn the list into call arguments.
   # delete the 'list(...)' wrapper
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  stringr::str_sub(
+  res <- stringr::str_sub(
     deparse(nlist, width.cutoff = 500),
     start = 6, end = -2
   )
+
+  res
+
 }
 

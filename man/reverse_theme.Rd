@@ -4,10 +4,10 @@
 \alias{reverse_theme}
 \title{Convert plot \code{theme} into code to create it}
 \usage{
-reverse_theme(p)
+reverse_theme(theme)
 }
 \arguments{
-\item{p}{ggplot2 plot object}
+\item{theme}{a ggplot2 theme object}
 }
 \value{
 Character string "theme_XXX(...)" or "theme(...)" or NULL

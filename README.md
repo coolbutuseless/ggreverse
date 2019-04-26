@@ -6,14 +6,19 @@
 <!-- badges: start -->
 
 ![](https://img.shields.io/badge/Status-alpha-orange.svg)
-![](https://img.shields.io/badge/Version-0.1.0-blue.svg)
+![](https://img.shields.io/badge/Version-0.1.1-blue.svg)
 <!-- badges: end -->
 
 `ggreverse` takes a ggplot object and returns the code to create that
 plot.
 
-This package was written as a learning exercise to help me figure out
-some of the internal structure of a ggplot object.
+This package is written as a learning exercise to help me figure out the
+internal structure of a ggplot object.
+
+## Releases
+
+  - `0.1.0` - initial release
+  - `0.1.0` - improved theme handling
 
 ## ToDo
 
@@ -46,9 +51,10 @@ plot_df <- mtcars
 
 # Create a ggplot2 plot object
 p <- ggplot(plot_df) +
-  geom_point(aes(mpg, wt), size = 3) +
+  geom_point(aes(mpg, wt, colour = cyl), size = 3) +
   labs(title = "hello") +
   theme_bw() + 
+  theme(legend.position = 'none') + 
   coord_equal()
 ```
 
@@ -57,13 +63,14 @@ p <- ggplot(plot_df) +
 ``` r
 # Convert the plot object back into code
 plot_code <- ggreverse::convert_to_code(p)
-plot_code
+print(plot_code)
 ```
 
     #> ggplot(data = plot_df) +
-    #>   geom_point(mapping = aes(x = mpg, y = wt), size = 3, position = position_identity(), stat = "identity") +
-    #>   labs(title = "hello", x = "mpg", y = "wt") +
+    #>   geom_point(mapping = aes(x = mpg, y = wt, colour = cyl), size = 3, position = position_identity(), stat = "identity") +
+    #>   labs(title = "hello", x = "mpg", y = "wt", colour = "cyl") +
     #>   theme_bw(11) +
+    #>   theme(legend.position = "none") +
     #>   coord_fixed()
 
 ``` r
