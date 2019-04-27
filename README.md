@@ -20,18 +20,6 @@ internal structure of a ggplot object.
   - `0.1.0` - initial release
   - `0.1.1` - improved theme handling
 
-## ToDo
-
-  - Extracting `facet` and `scales` information.
-  - `aes_string()` is currently unsupported.
-  - Using tidyeval in `aes()` calls is currently unsupported.
-  - Complete themes which are customisations of built-in themes could be
-    more compact if nested diffs where done between themes, rather than
-    just a `shallow_diff()`
-  - currently layers extracted as `geom_x(stat = 'y')` rather than
-    `stat_y(geom='x')`. Make this configurable?
-  - Lots of other stuff :)
-
 ## Installation
 
 You can install from [GitHub](https://github.com/coolbutuseless/) with:
@@ -84,6 +72,29 @@ eval(parse(text = plot_code))
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
+## Technical Notes
+
+  - the `data` arguments to `ggplot()` and `geom()` are evaluated at
+    call time. There is no easy way to recover the name of the data
+    argument.
+      - `ggreverse` tries to match the actual data in the ggplot object
+        against a named object in the plotting environment. Otherwise it
+        uses a generic data name
+  - aesthethic mappings are evaluated at call time, so tidyeval and
+    `aes_string()` mappings are supported, but `ggreverse` will only
+    include the final variable name mapping.
+  - Layers are currently extracted as `geom_x(stat = 'y')` rather than
+    `stat_y(geom='x')`.  
+    I’m not sure if there are any cases where these aren’t equivalent.
+
+## ToDo
+
+  - Extracting `facet` and `scales` information.
+  - Complete themes which are customisations of built-in themes could be
+    more compact if nested diffs where done between themes, rather than
+    just a `shallow_diff()`
+  - Lots of other stuff :)
 
 ## SessionInfo
 
